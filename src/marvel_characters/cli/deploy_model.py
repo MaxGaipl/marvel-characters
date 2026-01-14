@@ -11,6 +11,7 @@ from marvel_characters.serving.model_serving import ModelServing
 
 
 def build_parser() -> argparse.ArgumentParser:
+    """Build the CLI argument parser."""
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--root_path",
@@ -30,6 +31,7 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main(argv: list[str] | None = None) -> None:
+    """Deploy the latest model version to serving."""
     parser = build_parser()
     args = parser.parse_args(argv)
 

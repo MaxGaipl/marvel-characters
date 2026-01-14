@@ -10,6 +10,7 @@ from marvel_characters.monitoring import create_or_refresh_monitoring
 
 
 def build_parser() -> argparse.ArgumentParser:
+    """Build the CLI argument parser."""
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--root_path",
@@ -29,6 +30,7 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main(argv: list[str] | None = None) -> None:
+    """Refresh model monitoring assets."""
     parser = build_parser()
     args = parser.parse_args(argv)
 

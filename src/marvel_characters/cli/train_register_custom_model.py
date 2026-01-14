@@ -3,7 +3,6 @@ from __future__ import annotations
 import argparse
 from importlib.metadata import version
 
-import mlflow
 from loguru import logger
 from pyspark.dbutils import DBUtils
 from pyspark.sql import SparkSession
@@ -14,6 +13,7 @@ from marvel_characters.models.custom_model import MarvelModelWrapper
 
 
 def build_parser() -> argparse.ArgumentParser:
+    """Build the CLI argument parser."""
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--root_path",
@@ -36,6 +36,7 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main(argv: list[str] | None = None) -> None:
+    """Train, register, and conditionally deploy the custom model."""
     parser = build_parser()
     args = parser.parse_args(argv)
 
