@@ -20,6 +20,12 @@ dependencies = [
 
 dynamic = ['version']
 
+[project.scripts]
+process-data = "marvel_characters.cli.process_data:main"
+train-register-custom-model = "marvel_characters.cli.train_register_custom_model:main"
+deploy-model = "marvel_characters.cli.deploy_model:main"
+refresh-monitor = "marvel_characters.cli.refresh_monitor:main"
+
 [project.optional-dependencies]
 dev = ["databricks-connect>=16.0, <17",
        "ipykernel>=6.29.5, <7",

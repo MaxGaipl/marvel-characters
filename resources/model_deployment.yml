@@ -19,8 +19,9 @@ resources:
       tasks:
         - task_key: "preprocessing"
           environment_key: default
-          spark_python_task:
-            python_file: "../scripts/process_data.py"
+          python_wheel_task:
+            package_name: marvel-characters
+            entry_point: process-data
             parameters:
               - "--root_path"
               - "${workspace.root_path}"
@@ -31,8 +32,9 @@ resources:
           environment_key: default
           depends_on:
             - task_key: "preprocessing"
-          spark_python_task:
-            python_file: "../scripts/train_register_custom_model.py"
+          python_wheel_task:
+            package_name: marvel-characters
+            entry_point: train-register-custom-model
             parameters:
               - "--root_path"
               - "${workspace.root_path}"
@@ -58,8 +60,9 @@ resources:
           depends_on:
             - task_key: "model_updated"
               outcome: "true"
-          spark_python_task:
-            python_file: "../scripts/deploy_model.py"
+          python_wheel_task:
+            package_name: marvel-characters
+            entry_point: deploy-model
             parameters:
               - "--root_path"
               - "${workspace.root_path}"
