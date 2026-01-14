@@ -7,8 +7,7 @@ include:
 artifacts:
   default:
     type: whl
-    build: uv build
-    path: .
+    path: dist/*.whl
 
 variables:
   git_sha:
